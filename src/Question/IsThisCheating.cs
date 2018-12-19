@@ -22,6 +22,10 @@ namespace WhatIfHmmm.Question
                },
                Entity = order
             });
+
+            SaveChanges();
+            //All "Handle" methods could be wrapped in a 
+            //(save changes / retry n-times on revision conflict)
         }
 
         public void Handle(ManyNewOrdersInOneTransaction command)
@@ -40,6 +44,9 @@ namespace WhatIfHmmm.Question
                     Entity = newOrder
                 });
             }
+            
+            SaveChanges();
+            //Saving all events and all state of those events in one transaction
         }
 
 
