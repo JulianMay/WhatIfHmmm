@@ -21,7 +21,7 @@ We (where i work) really do have valid cases where slower/fewer writes (per part
 The code is just a super rough sketch, a conversation-piece:
 The idea is good ol' UnitOfWork with EF, where only events may alter state of the (UseCase)dbContext.
 
-As events are emitted within the UOW, events are added to an eventstore that is part of the dbContext.
+As events are emitted within the UOW, they are added to an eventstore that is part of the dbContext.
 
 A unique-index (AggregateId + Revision) on the Event-table is used to enforce optimistic offline locking _for all aggregates in the transaction-scope_. 
 
