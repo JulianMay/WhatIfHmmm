@@ -16,7 +16,7 @@ _you just have to pair events with their aggregates_
 
 _that's all it is to it_
 
-We (where i work) really do have valid cases where slower/fewer writes (per partition, per sql-db in this case) would be perfectly tollerable, as long as they where consistent(we are paying the bill for inconsistencies and split-brain).
+We (where i work) really do have valid cases where slower/fewer writes (per partition, per sql-db in this case) would be perfectly tollerable, as long as they where consistent (we are paying the bill for inconsistencies and split-brain).
 
 The code is just a super rough sketch, a conversation-piece:
 The idea is good ol' UnitOfWork with EF, where only events may alter state of the (UseCase)dbContext.
